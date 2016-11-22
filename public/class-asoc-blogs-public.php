@@ -124,6 +124,77 @@ class Asoc_Blogs_Public {
 				$post = json_decode($post_raw);
 				//var_dump($post_raw);
 			}
+			
+			$style = '
+<style type="text/css">	
+#map{
+	height: 500px;
+}
+
+.block{
+	height: 286px;
+	width: 286px;
+	border:1px solid lightgray;
+	float: 	left;	
+	margin: 5px;
+	padding:5px;		
+}
+  
+.shortblock{
+	height: 143px;
+	width: 286px;
+	border:1px solid lightgray;
+	float: 	left;	
+	margin: 5px;
+	padding:5px;	
+    background-color:white;
+    text-align:center
+}
+  
+  main .shortblock{
+    display:none;
+  }
+
+.block:hover{
+	box-shadow: 0 0 3px black;
+}
+
+.block{
+	background-size:cover; 
+	background-position:center center; 
+}
+.block *{
+	text-align: center;
+	background-color: rgba(255,255,255,0.85);
+	padding: 5px;
+	margin-left: -5px;
+	margin-right: -5px;
+	margin-top: -8px;
+}
+
+.block .team_name{
+	font-size: 16px;
+}
+
+.block .argomento{
+	font-size: 	10px;
+	color: 	gray;
+	font-style: italic;
+}
+
+.block .school_name{
+	font-size: 12px;
+	color: 	gray;
+}
+
+.container_wrap{
+	border-style: none;
+}
+
+</style>
+';
+			
+			echo $style;
 			get_header();
 			/*STUCTURAL DATA*/
 			//var_dump($wp->query_vars["asoc_mode"]);
