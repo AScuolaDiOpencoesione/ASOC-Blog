@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              http://ingmmo.com
- * @since             1.0.2
+ * @since             1.0.0
  * @package           Asoc_Blogs
  *
  * @wordpress-plugin
