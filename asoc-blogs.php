@@ -23,7 +23,14 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       asoc-blogs
  * Domain Path:       /languages
+ * Network:           true
+ * GitHub Plugin URI: https://github.com/AScuolaDiOpencoesione/ASOC-Blog
+ * GitHub Branch:     master
+ * 
  */
+ 
+<?php
+
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
