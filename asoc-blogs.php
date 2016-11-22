@@ -24,13 +24,10 @@
  * Text Domain:       asoc-blogs
  * Domain Path:       /languages
  * Network:           true
- * GitHub Plugin URI: https://github.com/AScuolaDiOpencoesione/ASOC-Blog
+ * GitHub Plugin URI: https://github.com/afragen/github-updater
  * GitHub Branch:     master
- * 
+ * GitHub Languages:  https://github.com/afragen/github-updater-translations
  */
- 
-<?php
-
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
