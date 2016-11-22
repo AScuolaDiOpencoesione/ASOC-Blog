@@ -211,10 +211,22 @@ class Asoc_Blogs_Public {
 				echo "<h1>Blog Scuole {$section->name}</h1>";
 				echo "</div>";
 			} elseif($wp->query_vars["asoc_mode"] == "team"){
+				echo '<div class="conainer">';
+				echo '<div class="nav">';
+				echo "<a href='/blogs/{$section->id}'><i class='fa fa-fw fa-chevron-left'></i> Tutte le scuole</a>";
+				echo '</div>';
+				echo '</div>';
 				echo "<div class='container'>";
 				echo "<h1>Blog Team Scuola {$team->details->name}</h1>";
 				echo "</div>";
 			} elseif($wp->query_vars["asoc_mode"] == "post"){
+				echo '<div class="conainer">';
+				echo '<div class="nav">';
+				echo "<a href='/blogs/{$section->id}'><i class='fa fa-fw fa-chevron-left'></i> Tutte le scuole</a>";
+				echo " - <a href='/blogs/{$section->id}/{$team->id}'><i class='fa fa-fw fa-chevron-left'></i> Blog Team</a>";
+				echo '</div>';
+				echo '</div>';
+				
 				echo "<div class='container'>";
 				echo "<h1>Blog Team Scuola {$team->details->name}</h1>";
 				echo "<h2>Report {$post->name}</h2>";
@@ -231,6 +243,9 @@ class Asoc_Blogs_Public {
 				echo "</div>";
 			}
 			
+			
+			echo "<div class='flex_column av_three_fourth  flex_column_div first  avia-builder-el-0  el_before_av_one_fourth  avia-builder-el-first'>";
+			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				echo "<div class='teams'>";
 				//var_dump($teams);
@@ -239,10 +254,8 @@ class Asoc_Blogs_Public {
 					echo "<a href='/blogs/{$section->id}/{$t->id}'>{$t->school->name}</a>";
 					echo "</div>";
 				}
-				echo "</div>";
 			}
 			if($wp->query_vars["asoc_mode"] == "team"){
-				echo "<div>";
 				if($team->lesson_1_form){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/'>{$team->school->name}</a>";
@@ -278,13 +291,47 @@ class Asoc_Blogs_Public {
 					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
 					echo "</div>";
 				}
-				echo "</div>";
 			}
 				
 			if($wp->query_vars["asoc_mode"] == "post"){
 				/* Teams */
 				echo "<div>POST</div>";
 			}
+			
+			echo "</div>";
+			
+			/* SIDEBAR */
+			
+			echo "<div class='flex_column av_one_fourth  flex_column_div   avia-builder-el-2  el_after_av_three_fourth  avia-builder-el-last  '>";
+			
+			if ($wp->query_vars["asoc_mode"] == "blog"){
+				//LATEST POSTS
+				echo "<h3>Gli ultimi post</h3>";
+			} else {
+				//TEAM PROFILE
+				echo "<center>";
+				echo "<img width='495' height='302' src='{$team->details->logo}'>";
+				echo "<h2>{$tema->details->name}</h2>";
+				echo "<div class='school_name'>{$team->school->name}</div>";
+				echo "<div class='school_name'>{$team->application->school_municipality}</div>";
+				echo "<hr>";
+				
+				echo "<div>Progetto OpenCoesione: ";
+				echo "<a href='{$team->lesson_1_form->oc_link}' target='_blank'><i class='fa fa-fw fa-world'></i>{$team->lesson_1_form->oc_name}</a>";
+				echo '</div>';
+				
+				//echo '<div title="Tutte le scuole con tema Trasporti"><a href="?tema=Trasporti"><i class="fa fa-fw fa-tag"></i>Trasporti</a></div>';
+				//echo '<hr>';
+				echo "<div><i class='fa fa-fw fa-user'></i>{$team->support_edic->name}</div>";
+				echo "<div><i class='fa fa-fw fa-users'></i>{$team->support_association->name}</div>";
+				echo '<hr>';
+				echo "<div><i class='fa fa-fw fa-twitter'></i><a href='https://twitter.com/{$team->details->twitter}'>{$team->details->twitter}</a></div>";
+				echo "<div><i class='fa fa-fw'></i><a href='{$team->details->web}'>Sito web</a></div>";
+				echo '</center>';
+				echo "<hr>";
+			}
+			
+			echo "</div>";
 			get_footer();
 	        exit();
 	    }
