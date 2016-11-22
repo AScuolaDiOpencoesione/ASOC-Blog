@@ -237,7 +237,7 @@ class Asoc_Blogs_Public {
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				/*map*/
-				echo "<div id='map'></div>";
+				//echo "<div id='map'></div>";
 				/* filters */
 				echo "<div>";
 				echo "</div>";
