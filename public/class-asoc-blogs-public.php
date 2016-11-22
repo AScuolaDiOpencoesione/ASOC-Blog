@@ -201,8 +201,10 @@ class Asoc_Blogs_Public {
 			$x = $wp->query_vars["asoc_mode"];
 			//var_dump($x);
 			//var_dump($section);
-			var_dump($team);
+			//var_dump($team);
 			//var_dump($post);
+
+			//TITLE
 
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				echo "<div class='container'>";
@@ -210,23 +212,20 @@ class Asoc_Blogs_Public {
 				echo "</div>";
 			} elseif($wp->query_vars["asoc_mode"] == "team"){
 				echo "<div class='container'>";
-				echo "<h1>Blog Team Scuola {$team->name}</h1>";
+				echo "<h1>Blog Team Scuola {$team->details->name}</h1>";
 				echo "</div>";
 			} elseif($wp->query_vars["asoc_mode"] == "post"){
 				echo "<div class='container'>";
-				echo "<h1>Blog Team Scuola {$team->name}</h1>";
+				echo "<h1>Blog Team Scuola {$team->details->name}</h1>";
 				echo "<h2>Report {$post->name}</h2>";
 				echo "</div>";
 			} else {
 				echo "ERRORE";
 			}
 			
-			/*FORMATS*/
 			if($wp->query_vars["asoc_mode"] == "blog"){
+				/*map*/
 				echo "<div id='map'></div>";
-			}
-			
-			if($wp->query_vars["asoc_mode"] == "blog"){
 				/* filters */
 				echo "<div>";
 				echo "</div>";
@@ -243,40 +242,39 @@ class Asoc_Blogs_Public {
 				echo "</div>";
 			}
 			if($wp->query_vars["asoc_mode"] == "team"){
-				/* Teams */
 				echo "<div>";
 				if($team->lesson_1_form){
-					echo "<div class='team block datablock'>";
+					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/'>{$team->school->name}</a>";
 					echo "</div>";
 				}
 				if($team->lesson_2_form){
-					echo "<div class='team block datablock'>";
+					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form){
-					echo "<div class='team block datablock'>";
+					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_event){
-					echo "<div class='team block datablock'>";
+					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_post){
-					echo "<div class='team block datablock'>";
+					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
 					echo "</div>";
 				}
 				if($team->lesson_4_form){
-					echo "<div class='team block datablock'>";
+					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
 					echo "</div>";
 				}
 				if($team->lesson_5_form){
-					echo "<div class='team block datablock'>";
+					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
 					echo "</div>";
 				}
