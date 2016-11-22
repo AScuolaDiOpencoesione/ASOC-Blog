@@ -134,12 +134,18 @@ class Asoc_Blogs_Public {
 			//var_dump($post);
 
 			if($wp->query_vars["asoc_mode"] == "blog"){
+				echo "<div class='container'>";
 				echo "<h1>Blog Scuole {$section->name}</h1>";
+				echo "</div>";
 			} elseif($wp->query_vars["asoc_mode"] == "team"){
+				echo "<div class='container'>";
 				echo "<h1>Blog Team Scuola {$team->name}</h1>";
+				echo "</div>";
 			} elseif($wp->query_vars["asoc_mode"] == "post"){
+				echo "<div class='container'>";
 				echo "<h1>Blog Team Scuola {$team->name}</h1>";
 				echo "<h2>Report {$post->name}</h2>";
+				echo "</div>";
 			} else {
 				echo "ERRORE";
 			}
@@ -159,7 +165,7 @@ class Asoc_Blogs_Public {
 				echo "<div class='teams'>";
 				//var_dump($teams);
 				foreach($teams as $t){
-					echo "<div class='team card'>";
+					echo "<div class='team block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$t->id}'>{$t->school->name}</a>";
 					echo "</div>";
 				}
