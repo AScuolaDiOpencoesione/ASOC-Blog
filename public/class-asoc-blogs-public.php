@@ -254,6 +254,7 @@ class Asoc_Blogs_Public {
 					echo "<a href='/blogs/{$section->id}/{$t->id}'>{$t->school->name}</a>";
 					echo "</div>";
 				}
+				echo "</div>";
 			}
 			if($wp->query_vars["asoc_mode"] == "team"){
 				if($team->lesson_1_form){
@@ -302,7 +303,7 @@ class Asoc_Blogs_Public {
 			
 			/* SIDEBAR */
 			
-			echo "<div class='flex_column av_one_fourth  flex_column_div   avia-builder-el-2  el_after_av_three_fourth  avia-builder-el-last  '>";
+			echo "<div class='flex_column av_one_fourth  flex_column_div   avia-builder-el-2  el_after_av_three_fourth  avia-builder-el-last'>";
 			
 			if ($wp->query_vars["asoc_mode"] == "blog"){
 				//LATEST POSTS
