@@ -16,7 +16,7 @@
  * Plugin Name:       asoc-blogs
  * Plugin URI:        http://www.ascuoladiopencoesione.it/asoc-blogs
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.2
+ * Version:           1.1.0
  * Author:            Marco Montanari
  * Author URI:        http://ingmmo.com
  * License:           GPL-2.0+
