@@ -266,8 +266,10 @@ class Asoc_Blogs_Public {
 				echo "<div class='teams'>";
 				//var_dump($teams);
 				foreach($teams as $t){
-					echo "<div class='team block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$t->id}'>{$t->school->name}</a>";
+					//var_dump($t);
+					echo "<div class='team block datablock' style='background-image:url({$t->details->profile_image});'>";
+					echo "<h3>{$t->details->name}</h3>";
+					echo "<center><a href='/blogs/{$section->id}/{$t->id}'>{$t->school->name}</a></center>";
 					echo "</div>";
 				}
 				echo "</div>";
