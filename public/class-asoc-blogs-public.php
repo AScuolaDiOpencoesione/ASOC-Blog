@@ -259,37 +259,37 @@ class Asoc_Blogs_Public {
 			if($wp->query_vars["asoc_mode"] == "team"){
 				if($team->lesson_1_form){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/'>{$team->school->name}</a>";
+					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_1_form}'>Report Lezione 1</a>";
 					echo "</div>";
 				}
 				if($team->lesson_2_form){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
+					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_2_form}'>Report Lezione 2</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
+					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form}'>Report Lezione 3</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_event){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
+					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_event}'>Report Lezione 3 - Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_post){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
+					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_post}'>Report Lezione 3 - Resoconto Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_4_form){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
+					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_4_form}'>Report Lezione 4</a>";
 					echo "</div>";
 				}
 				if($team->lesson_5_form){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}'>{$team->school->name}</a>";
+					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_5_form}'>Report Lezione 5</a>";
 					echo "</div>";
 				}
 			}
@@ -323,7 +323,8 @@ class Asoc_Blogs_Public {
 			} else {
 				//TEAM PROFILE
 				echo "<center>";
-				echo "<img width='495' height='302' src='{$team->details->logo}'>";
+				echo "<img width='495' height='302' src='{$team->details->profile_image}'>";
+				echo "<img width='495' height='302' src='{$team->details->name}'>";
 				echo "<h2>{$tema->details->name}</h2>";
 				echo "<div class='school_name'>{$team->school->name}</div>";
 				echo "<div class='school_name'>{$team->application->school_municipality}</div>";
