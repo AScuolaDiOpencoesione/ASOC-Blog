@@ -245,6 +245,15 @@ class Asoc_Blogs_Public {
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				/*map*/
 				echo "<div id='map'></div>";
+				echo '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />';
+				echo '<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>';
+				echo '<script>
+				var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {
+					attribution: "&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>"
+				});
+				var mymap = L.map("map").setView([51.505, -0.09], 13);
+				map.addLayer(layer);
+				</script>';
 				/* filters */
 				echo "<div>";
 				echo "</div>";
