@@ -350,7 +350,7 @@ class Asoc_Blogs_Public {
 				echo "<div><i class='fa fa-fw fa-users'></i>{$team->support_associations[0]->name}</div>";
 				echo '<hr>';
 				if($team->details->twitter)
-					echo "<div><i class='fa fa-fw fa-twitter'></i><a href='https://twitter.com/{$team->details->twitter}'>{$team->details->twitter}</a></div>";
+					echo "<div><i class='fa fa-fw fa-twitter'></i><a href='{$team->details->twitter}'>{$team->details->twitter}</a></div>";
 				if($team->details->web)
 					echo "<div><i class='fa fa-fw'></i><a href='{$team->details->web}'>Sito web</a></div>";
 				echo '</center>';
