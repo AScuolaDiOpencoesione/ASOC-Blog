@@ -298,7 +298,7 @@ class Asoc_Blogs_Public {
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_5_form}'>Report Lezione 5</a>";
 					echo "</div>";
-				}
+				} 
 			}
 				
 			if($wp->query_vars["asoc_mode"] == "post"){
