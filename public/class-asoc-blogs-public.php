@@ -249,7 +249,7 @@ class Asoc_Blogs_Public {
 				echo '<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>';
 				echo '<script>';
 				echo 'var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {';
-				echo '	attribution: "&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>"';
+				echo '	attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"https://carto.com/attributions\">CARTO</a>"';
 				echo '});';
 				echo 'var map = L.map("map").setView([51.505, -0.09], 13);';
 				echo 'map.addLayer(layer);';
