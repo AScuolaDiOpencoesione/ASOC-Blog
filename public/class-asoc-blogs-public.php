@@ -111,7 +111,7 @@ class Asoc_Blogs_Public {
 				$team_raw = file_get_contents("http://api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
-				//var_dump($section_raw);
+				//var_dump($team);
 			} elseif(get_query_var-("asoc_mode") == "post"){
 				$section_raw = file_get_contents("http://api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
 				//echo $section_raw;
@@ -295,8 +295,20 @@ class Asoc_Blogs_Public {
 			}
 				
 			if($wp->query_vars["asoc_mode"] == "post"){
-				/* Teams */
-				echo "<div>POST</div>";
+				/* Post */
+				echo "<h1>".$post->name."</h1>";
+				echo "<hr>";
+				
+				foreach($post->form->fields as $ffield){
+					switch($ffield->t->t){
+						default:
+							echo "<h2>".$ffield->label."</h2>";
+					}
+					foreach($post->fields as $field){
+						if ($field->field == $ffield->id)
+							echo "<p>".$field->value."</p>";
+					}
+				}
 			}
 			
 			echo "</div>";
