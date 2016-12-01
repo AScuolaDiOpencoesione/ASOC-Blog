@@ -118,7 +118,7 @@ class Asoc_Blogs_Public {
 				$team_raw = file_get_contents("http://api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
-				var_dump($team);
+				//var_dump($team);
 			} elseif(get_query_var-("asoc_mode") == "post"){
 				$section_raw = file_get_contents("http://api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
 				//echo $section_raw;
