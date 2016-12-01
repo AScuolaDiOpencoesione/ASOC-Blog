@@ -252,7 +252,7 @@ class Asoc_Blogs_Public {
 				echo '	attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"https://carto.com/attributions\">CARTO</a>"';
 				echo '});';
 				echo 'var map = L.map("map").setView([51.505, -0.09], 13);';
-				echo 'map.addLayer(layer);';
+				echo 'map.addLayer(bglayer);';
 				echo '</script>';
 				/* filters */
 				echo "<div>";
