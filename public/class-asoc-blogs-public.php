@@ -83,21 +83,28 @@ class Asoc_Blogs_Public {
 	public function wpse9870_parse_request( &$wp )
 	{
 		if ( array_key_exists( 'asoc_blog', $wp->query_vars ) ) {
-			$regions = file_get_contents('http://api.ascuoladiopencoesione.it/region/');
-			$provinces = file_get_contents('http://api.ascuoladiopencoesione.it/province/');
-			$octopics = file_get_contents('http://api.ascuoladiopencoesione.it/octopic/');
-			$teams = file_get_contents('http://api.ascuoladiopencoesione.it/team/');
 			
-			$regions = json_decode($regions);
-			$provinces = json_decode($provinces);
-			$octopics = json_decode($octopics);
-			$teams = json_decode($teams);
+			$regions = array(); 
+			$provinces = array(); 
+			$octopics = array(); 
+			$teams = array(); 
 			
 			$section = array();
 			$team = array();
 			$post = array();
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
+				
+				$regions = file_get_contents('http://api.ascuoladiopencoesione.it/region/');
+				$provinces = file_get_contents('http://api.ascuoladiopencoesione.it/province/');
+				$octopics = file_get_contents('http://api.ascuoladiopencoesione.it/octopic/');
+				$teams = file_get_contents('http://api.ascuoladiopencoesione.it/team/');
+				
+				$regions = json_decode($regions);
+				$provinces = json_decode($provinces);
+				$octopics = json_decode($octopics);
+				$teams = json_decode($teams);
+				
 				$surl = "http://api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
 				//echo($surl);
 				$section_raw = file_get_contents($surl);
@@ -111,7 +118,7 @@ class Asoc_Blogs_Public {
 				$team_raw = file_get_contents("http://api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
-				//var_dump($team);
+				var_dump($team);
 			} elseif(get_query_var-("asoc_mode") == "post"){
 				$section_raw = file_get_contents("http://api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
 				//echo $section_raw;
@@ -237,7 +244,7 @@ class Asoc_Blogs_Public {
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				/*map*/
-				//echo "<div id='map'></div>";
+				echo "<div id='map'></div>";
 				/* filters */
 				echo "<div>";
 				echo "</div>";
@@ -257,37 +264,37 @@ class Asoc_Blogs_Public {
 				echo "</div>";
 			}
 			if($wp->query_vars["asoc_mode"] == "team"){
-				if($team->lesson_1_form){
+				if($team->lesson_1_form_published){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_1_form}'>Report Lezione 1</a>";
 					echo "</div>";
 				}
-				if($team->lesson_2_form){
+				if($team->lesson_2_form_published){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_2_form}'>Report Lezione 2</a>";
 					echo "</div>";
 				}
-				if($team->lesson_3_form){
+				if($team->lesson_3_form_published){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form}'>Report Lezione 3</a>";
 					echo "</div>";
 				}
-				if($team->lesson_3_form_event){
+				if($team->lesson_3_form_event_published){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_event}'>Report Lezione 3 - Open Data Day</a>";
 					echo "</div>";
 				}
-				if($team->lesson_3_form_post){
+				if($team->lesson_3_form_post_published){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_post}'>Report Lezione 3 - Resoconto Open Data Day</a>";
 					echo "</div>";
 				}
-				if($team->lesson_4_form){
+				if($team->lesson_4_form_published){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_4_form}'>Report Lezione 4</a>";
 					echo "</div>";
 				}
-				if($team->lesson_5_form){
+				if($team->lesson_5_form_published){
 					echo "<div class='report block datablock'>";
 					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_5_form}'>Report Lezione 5</a>";
 					echo "</div>";
@@ -300,13 +307,16 @@ class Asoc_Blogs_Public {
 				echo "<hr>";
 				
 				foreach($post->form->fields as $ffield){
-					switch($ffield->t->t){
-						default:
-							echo "<h2>".$ffield->label."</h2>";
-					}
+					echo "<h2>".$ffield->label."</h2>";
 					foreach($post->fields as $field){
-						if ($field->field == $ffield->id)
-							echo "<p>".$field->value."</p>";
+						if ($field->field == $ffield->id){
+							switch($ffield->t->t){
+								case "url":
+									echo "<a href={$field->value}>{$field->value}</p>";
+								default:
+									echo "<p>{$field->value}</p>";
+							}
+						}
 					}
 				}
 			}
