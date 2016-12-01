@@ -251,7 +251,7 @@ class Asoc_Blogs_Public {
 				var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {
 					attribution: "&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>"
 				});
-				var mymap = L.map("map").setView([51.505, -0.09], 13);
+				var map = L.map("map").setView([51.505, -0.09], 13);
 				map.addLayer(layer);
 				</script>';
 				/* filters */
