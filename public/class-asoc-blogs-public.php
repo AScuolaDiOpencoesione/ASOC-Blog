@@ -264,8 +264,29 @@ class Asoc_Blogs_Public {
 				echo '$.getJSON("http://api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}); } }); map.addLayer(geojsonLayer); });';
 				echo 'map.addLayer(bglayer);';
 				echo '</script>';
+				
 				/* filters */
 				echo "<div>";
+				
+				echo "<div class='col-md-4 flex_column av_one_fourth'>";
+				echo "<select data-sel='region'>";
+				foreach($regions as $r) 
+					echo "<option value='{$r->id}'>{$r->name}</option>";
+				echo "</select>";
+				echo "</div>";
+				echo "<div class='col-md-4 flex_column av_one_fourth'>";
+				echo "<select data-sel='provinces'>";
+				foreach($provinces as $r) 
+					echo "<option value='{$r->id}'>{$r->name}</option>";
+				echo "</select>";
+				echo "</div>";
+				echo "<div class='col-md-4 flex_column av_one_fourth'>";
+				echo "<select data-sel='octopics'>";
+				foreach($octopics as $r) 
+					echo "<option value='{$r->id}'>{$r->name}</option>";
+				echo "</select>";
+				echo "</div>";
+				
 				echo "</div>";
 			}
 			
