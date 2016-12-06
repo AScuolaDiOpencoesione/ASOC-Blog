@@ -306,7 +306,7 @@ class Asoc_Blogs_Public {
 						echo "<h3>{$t->details->name}</h3>";
 						echo "<center>{$t->school->name}</center>";
 						echo "<center>{$t->school->city}</center>";
-						echo "<center style='font-size:0.8em'>{$t->school->province}</center>";
+						echo "<center style='font-size:0.8em'>{$t->aplication->school_province}</center>";
 						echo "</div>";
 					echo "</a>";
 				}
