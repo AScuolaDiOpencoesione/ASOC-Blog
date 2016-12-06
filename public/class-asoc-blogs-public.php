@@ -301,10 +301,13 @@ class Asoc_Blogs_Public {
 				//var_dump($teams);
 				foreach($teams as $t){
 					//<a target="_blank" href="?team=1421"><div class="team_name">Work In Progress</div><div class="argomento">Tema: Inclusione sociale</div><div class="school_name">Liceo Scientifico "Francesco La Cava"</div><div class="school_name">Bovalino (RC)</div></a>
-					echo "<div class='team block datablock' style='background-image:url({$t->details->profile_image});'>";
-					echo "<h3>{$t->details->name}</h3>";
-					echo "<center><a href='/blogs/{$section->id}/{$t->id}'>{$t->school->name}</a></center>";
-					echo "</div>";
+					echo "<a href='/blogs/{$section->id}/{$t->id}'>";
+						echo "<div class='team block datablock' style='background-image:url({$t->details->profile_image});'>";
+						echo "<h3>{$t->details->name}</h3>";
+						echo "<center>{$t->school->name}</center>";
+						echo "<center>{$t->school->municipality}</center>";
+						echo "</div>";
+					echo "</a>";
 				}
 				echo "</div>";
 			}
