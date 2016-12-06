@@ -266,9 +266,11 @@ class Asoc_Blogs_Public {
 				echo '</script>';
 				
 				/* filters */
-				echo "<div class='container'>";
+				echo "<div>";
 				
 				echo "<div class='col-md-4 flex_column av_one_third'>";
+				echo "<select data-sel='region'>";
+					echo "<option>Seleziona una Regione</option>";
 				foreach($regions as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
