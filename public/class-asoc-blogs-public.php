@@ -266,7 +266,7 @@ class Asoc_Blogs_Public {
 				echo '</script>';
 				
 				/* filters */
-				echo "<div class='container'>";
+				echo "<div class='container' style='width:50%;margin-left:25%;margin-right:25%;'>";
 				
 				echo "<div class='col-md-4 flex_column av_one_third'>";
 				echo "<select data-sel='region'>";
@@ -300,7 +300,7 @@ class Asoc_Blogs_Public {
 				echo "<div class='teams'>";
 				//var_dump($teams);
 				foreach($teams as $t){
-					//var_dump($t);
+					//<a target="_blank" href="?team=1421"><div class="team_name">Work In Progress</div><div class="argomento">Tema: Inclusione sociale</div><div class="school_name">Liceo Scientifico "Francesco La Cava"</div><div class="school_name">Bovalino (RC)</div></a>
 					echo "<div class='team block datablock' style='background-image:url({$t->details->profile_image});'>";
 					echo "<h3>{$t->details->name}</h3>";
 					echo "<center><a href='/blogs/{$section->id}/{$t->id}'>{$t->school->name}</a></center>";
