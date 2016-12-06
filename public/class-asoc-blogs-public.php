@@ -266,7 +266,7 @@ class Asoc_Blogs_Public {
 				echo '</script>';
 				
 				/* filters */
-				echo "<div>";
+				echo "<div class='container'>";
 				
 				echo "<div class='col-md-4 flex_column av_one_third'>";
 				echo "<select data-sel='region'>";
