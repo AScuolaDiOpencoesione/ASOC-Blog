@@ -264,6 +264,7 @@ class Asoc_Blogs_Public {
 				echo '$.getJSON("http://api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}); } }); map.addLayer(geojsonLayer); });';
 				echo 'map.addLayer(bglayer);';
 				echo '</script>';
+				echo '<div></div>';
 				
 				/* filters */
 				echo "<div class='container' style='width:50%;margin-left:25%;margin-right:25%;'>";
