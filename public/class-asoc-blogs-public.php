@@ -268,7 +268,7 @@ class Asoc_Blogs_Public {
 				/* filters */
 				echo "<div class='container'>";
 				
-				echo "<div class='col-md-4 flex_column av_one_third'</option>";
+				echo "<div class='col-md-4 flex_column av_one_third'";
 				foreach($regions as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
