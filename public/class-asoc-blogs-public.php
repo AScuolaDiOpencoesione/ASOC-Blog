@@ -268,21 +268,21 @@ class Asoc_Blogs_Public {
 				/* filters */
 				echo "<div class='container' style='width:50%;margin-left:25%;margin-right:25%;'>";
 				
-				echo "<div class='col-md-4 flex_column av_one_third'>";
+				echo "<div class='' style='width:30%;'>";
 				echo "<select data-sel='region'>";
 					echo "<option>Seleziona una Regione</option>";
 				foreach($regions as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
 				echo "</div>";
-				echo "<div class='col-md-4 flex_column av_one_third'>";
+				echo "<div class='' style='width:30%;'>";
 				echo "<select data-sel='provinces'>";
 					echo "<option>Seleziona una Provincia</option>";
 				foreach($provinces as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
 				echo "</div>";
-				echo "<div class='col-md-4 flex_column av_one_third'>";
+				echo "<div class='' style='width:30%;'>";
 				echo "<select data-sel='octopics'>";
 					echo "<option>Seleziona un Tema OpenCoesione</option>";
 				foreach($octopics as $r) 
