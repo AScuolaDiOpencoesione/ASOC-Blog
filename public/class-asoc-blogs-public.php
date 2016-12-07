@@ -364,10 +364,13 @@ class Asoc_Blogs_Public {
 								switch($ffield->t->t){
 									case "url":
 										echo "<a href='{$field->value}'>{$field->value}</a>";
+										break;
 									case "img":
 										echo "<img src='{$field->value}'>";
+										break;
 									default:
 										echo "<p>{$field->value}</p>";
+										break;
 								}
 							}
 						}
