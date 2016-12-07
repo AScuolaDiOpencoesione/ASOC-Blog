@@ -360,11 +360,13 @@ class Asoc_Blogs_Public {
 					echo "<h2>".$ffield->label."</h2>";
 					foreach($post->fields as $field){
 						if ($field->field == $ffield->id){
-							switch($ffield->t->t){
-								case "url":
-									echo "<a href={$field->value}>{$field->value}</p>";
-								default:
-									echo "<p>{$field->value}</p>";
+							if($field->valid){
+								switch($ffield->t->t){
+									case "url":
+										echo "<a href={$field->value}>{$field->value}</p>";
+									default:
+										echo "<p>{$field->value}</p>";
+								}
 							}
 						}
 					}
