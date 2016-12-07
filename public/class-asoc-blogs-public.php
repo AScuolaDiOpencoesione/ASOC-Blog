@@ -261,7 +261,7 @@ class Asoc_Blogs_Public {
 				echo '});';
 				echo 'var map = L.map("map").setView([42.45588764197166, 13.9306640625], 5.5);';
 				echo 'var icon = L.VectorMarkers.icon({icon:"university", markerColor:"#ec6858", "prefix":"fa"});';
-				echo '$.getJSON("http://api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {onEachFeature: function(feature, layer){layer.bindPopup($(".school_'+feature.properties.team.id+').clone());}, pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}); } }); map.addLayer(geojsonLayer); });';
+				echo '$.getJSON("http://api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {onEachFeature: function(feature, layer){layer.bindPopup($(".school_\'feature.properties.team.id\').clone());}, pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}); } }); map.addLayer(geojsonLayer); });';
 				echo 'map.addLayer(bglayer);';
 				echo '</script>';
 				echo '<div></div>';
