@@ -88,10 +88,9 @@ class Asoc_Blogs_Public {
 		if ( array_key_exists( 'asoc_blog', $wp->query_vars ) ) {
 			
 			$testsrvr = $wp->query_vars["asoc_blog"];
-			var_dump($testsrvr);
 			$testsrvr = $testsrvr == "1"?"":"test";
 			
-			var_dump($testsrvr);
+			
 			
 			$regions = array(); 
 			$provinces = array(); 
@@ -115,7 +114,7 @@ class Asoc_Blogs_Public {
 				$teams = json_decode($teams);
 				
 				$surl = "http://'.$testsrvr.'api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
-				//echo($surl);
+				echo($surl);
 				$section_raw = file_get_contents($surl);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
