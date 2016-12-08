@@ -88,7 +88,10 @@ class Asoc_Blogs_Public {
 		if ( array_key_exists( 'asoc_blog', $wp->query_vars ) ) {
 			
 			$testsrvr = $wp->query_vars["asoc_blog"];
+			var_dump($testsrvr);
 			$testsrvr = $testsrvr == "1"?"":"test";
+			
+			var_dump($testsrvr);
 			
 			$regions = array(); 
 			$provinces = array(); 
