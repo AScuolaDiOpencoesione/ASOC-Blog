@@ -228,7 +228,7 @@ class Asoc_Blogs_Public {
 			} elseif($wp->query_vars["asoc_mode"] == "team"){
 				echo '<div class="container">';
 				echo '<div class="nav">';
-				echo "<a href='/blogs/{$section->id}'><i class='fa fa-fw fa-chevron-left'></i> Tutte le scuole</a>";
+				echo "<a href='/{$testsrvr}blogs/{$section->id}'><i class='fa fa-fw fa-chevron-left'></i> Tutte le scuole</a>";
 				echo '</div>';
 				echo '</div>';
 				echo "<div class='container'>";
@@ -237,8 +237,8 @@ class Asoc_Blogs_Public {
 			} elseif($wp->query_vars["asoc_mode"] == "post"){
 				echo '<div class="container">';
 				echo '<div class="nav">';
-				echo "<a href='/blogs/{$section->id}'><i class='fa fa-fw fa-chevron-left'></i> Tutte le scuole</a>";
-				echo " - <a href='/blogs/{$section->id}/{$team->id}'><i class='fa fa-fw fa-chevron-left'></i> Blog Team</a>";
+				echo "<a href='/{$testsrvr}blogs/{$section->id}'><i class='fa fa-fw fa-chevron-left'></i> Tutte le scuole</a>";
+				echo " - <a href='/{$testsrvr}blogs/{$section->id}/{$team->id}'><i class='fa fa-fw fa-chevron-left'></i> Blog Team</a>";
 				echo '</div>';
 				echo '</div>';
 				
@@ -310,7 +310,7 @@ class Asoc_Blogs_Public {
 				//var_dump($teams);
 				foreach($teams as $t){
 					//<a target="_blank" href="?team=1421"><div class="team_name">Work In Progress</div><div class="argomento">Tema: Inclusione sociale</div><div class="school_name">Liceo Scientifico "Francesco La Cava"</div><div class="school_name">Bovalino (RC)</div></a>
-					echo "<a href='/blogs/{$section->id}/{$t->id}' class='school_{$t->id}' style='color:black;'>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$t->id}' class='school_{$t->id}' style='color:black;'>";
 						echo "<div class='team block datablock' style='background-image:url({$t->details->profile_image});'>";
 						echo "<h3>{$t->details->name}</h3>";
 						echo "<center>{$t->school->name}</center>";
@@ -324,37 +324,37 @@ class Asoc_Blogs_Public {
 			if($wp->query_vars["asoc_mode"] == "team"){
 				if($team->lesson_1_form_published){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_1_form}'>Report Lezione 1</a>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_1_form}'>Report Lezione 1</a>";
 					echo "</div>";
 				}
 				if($team->lesson_2_form_published){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_2_form}'>Report Lezione 2</a>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_2_form}'>Report Lezione 2</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_published){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form}'>Report Lezione 3</a>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form}'>Report Lezione 3</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_event_published){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_event}'>Report Lezione 3 - Open Data Day</a>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_event}'>Report Lezione 3 - Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_post_published){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_post}'>Report Lezione 3 - Resoconto Open Data Day</a>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_post}'>Report Lezione 3 - Resoconto Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_4_form_published){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_4_form}'>Report Lezione 4</a>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_4_form}'>Report Lezione 4</a>";
 					echo "</div>";
 				}
 				if($team->lesson_5_form_published){
 					echo "<div class='report block datablock'>";
-					echo "<a href='/blogs/{$section->id}/{$team->id}/{$team->lesson_5_form}'>Report Lezione 5</a>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_5_form}'>Report Lezione 5</a>";
 					echo "</div>";
 				} 
 			}
