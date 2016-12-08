@@ -113,28 +113,28 @@ class Asoc_Blogs_Public {
 				$octopics = json_decode($octopics);
 				$teams = json_decode($teams);
 				
-				$surl = "http://'.$testsrvr.'api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
+				$surl = "http://".$testsrvr."api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
 				echo($surl);
 				$section_raw = file_get_contents($surl);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
 				//var_dump($section);
 			} elseif($wp->query_vars["asoc_mode"] == "team"){
-				$section_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
+				$section_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
-				$team_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
+				$team_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
 				//var_dump($team);
 			} elseif(get_query_var-("asoc_mode") == "post"){
-				$section_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
+				$section_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
-				$team_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
+				$team_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
-				$post_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/meta/compiledform/".$wp->query_vars["asoc_post"]);
+				$post_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/meta/compiledform/".$wp->query_vars["asoc_post"]);
 				//echo $post_raw;
 				$post = json_decode($post_raw);
 				//var_dump($post_raw);
