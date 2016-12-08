@@ -114,7 +114,7 @@ class Asoc_Blogs_Public {
 				$teams = json_decode($teams);
 				
 				$surl = "http://".$testsrvr."api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
-				echo($surl);
+				//echo($surl);
 				$section_raw = file_get_contents($surl);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
