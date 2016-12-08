@@ -60,9 +60,12 @@ class Asoc_Blogs_Public {
 	}
 	public function wpse9870_init_internal()
 	{
-	    add_rewrite_rule( 'blogs/([^/]*)/([^/]*)/([^/]*)', 'index.php?asoc_blog=1&asoc_mode=post&asoc_year=$matches[1]&asoc_team=$matches[2]&asoc_post=$matches[3]', 'top' );
-	    add_rewrite_rule( 'blogs/([^/]*)/([^/]*)',         'index.php?asoc_blog=1&asoc_mode=team&asoc_year=$matches[1]&asoc_team=$matches[2]', 'top' );
-	    add_rewrite_rule( 'blogs/([^/]*)',                 'index.php?asoc_blog=1&asoc_mode=blog&asoc_year=$matches[1]', 'top' );
+	    add_rewrite_rule( 'blogs/([^/]*)/([^/]*)/([^/]*)',     'index.php?asoc_blog=1&asoc_mode=post&asoc_year=$matches[1]&asoc_team=$matches[2]&asoc_post=$matches[3]', 'top' );
+	    add_rewrite_rule( 'blogs/([^/]*)/([^/]*)',             'index.php?asoc_blog=1&asoc_mode=team&asoc_year=$matches[1]&asoc_team=$matches[2]', 'top' );
+	    add_rewrite_rule( 'blogs/([^/]*)',                     'index.php?asoc_blog=1&asoc_mode=blog&asoc_year=$matches[1]', 'top' );
+	    add_rewrite_rule( 'testblogs/([^/]*)/([^/]*)/([^/]*)', 'index.php?asoc_blog=2&asoc_mode=post&asoc_year=$matches[1]&asoc_team=$matches[2]&asoc_post=$matches[3]', 'top' );
+	    add_rewrite_rule( 'testblogs/([^/]*)/([^/]*)',         'index.php?asoc_blog=2&asoc_mode=team&asoc_year=$matches[1]&asoc_team=$matches[2]', 'top' );
+	    add_rewrite_rule( 'testblogs/([^/]*)',                 'index.php?asoc_blog=2&asoc_mode=blog&asoc_year=$matches[1]', 'top' );
 	    
 		add_rewrite_tag('%asoc_blog%', '([^/]*)');
 		add_rewrite_tag('%asoc_mode%', '([^/]*)');
@@ -84,6 +87,9 @@ class Asoc_Blogs_Public {
 	{
 		if ( array_key_exists( 'asoc_blog', $wp->query_vars ) ) {
 			
+			$testsrvr = $wp->query_vars["asoc_blog"];
+			$testsrvr = $testsrvr == "1"?"":"test";
+			
 			$regions = array(); 
 			$provinces = array(); 
 			$octopics = array(); 
@@ -95,38 +101,38 @@ class Asoc_Blogs_Public {
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				
-				$regions = file_get_contents('http://api.ascuoladiopencoesione.it/region/');
-				$provinces = file_get_contents('http://api.ascuoladiopencoesione.it/province/');
-				$octopics = file_get_contents('http://api.ascuoladiopencoesione.it/octopic/');
-				$teams = file_get_contents('http://api.ascuoladiopencoesione.it/team/');
+				$regions = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/');
+				$provinces = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/');
+				$octopics = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/');
+				$teams = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/');
 				
 				$regions = json_decode($regions);
 				$provinces = json_decode($provinces);
 				$octopics = json_decode($octopics);
 				$teams = json_decode($teams);
 				
-				$surl = "http://api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
+				$surl = "http://'.$testsrvr.'api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
 				//echo($surl);
 				$section_raw = file_get_contents($surl);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
 				//var_dump($section);
 			} elseif($wp->query_vars["asoc_mode"] == "team"){
-				$section_raw = file_get_contents("http://api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
+				$section_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
-				$team_raw = file_get_contents("http://api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
+				$team_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
 				//var_dump($team);
 			} elseif(get_query_var-("asoc_mode") == "post"){
-				$section_raw = file_get_contents("http://api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
+				$section_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
-				$team_raw = file_get_contents("http://api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
+				$team_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
-				$post_raw = file_get_contents("http://api.ascuoladiopencoesione.it/meta/compiledform/".$wp->query_vars["asoc_post"]);
+				$post_raw = file_get_contents("http://'.$testsrvr.'api.ascuoladiopencoesione.it/meta/compiledform/".$wp->query_vars["asoc_post"]);
 				//echo $post_raw;
 				$post = json_decode($post_raw);
 				//var_dump($post_raw);
@@ -261,7 +267,7 @@ class Asoc_Blogs_Public {
 				echo '});';
 				echo 'var map = L.map("map").setView([42.45588764197166, 13.9306640625], 5.5);';
 				echo 'var icon = L.VectorMarkers.icon({icon:"university", markerColor:"#ec6858", "prefix":"fa"});';
-				echo '$.getJSON("http://api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}); } }); map.addLayer(geojsonLayer); });';
+				echo '$.getJSON("http://'.$testsrvr.'api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}); } }); map.addLayer(geojsonLayer); });';
 				echo 'map.addLayer(bglayer);';
 				echo '</script>';
 				echo '<div></div>';
