@@ -323,7 +323,7 @@ class Asoc_Blogs_Public {
 			}
 			if($wp->query_vars["asoc_mode"] == "team"){
 				if($team->lesson_1_form_published){
-					echo "<div class='report block datablock' style='background-image:url({$team->lesson_1_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({@$team->lesson_1_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_1_form}'>Report Lezione 1</a>";
 					echo "</div>";
 				}
