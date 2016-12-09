@@ -398,10 +398,8 @@ class Asoc_Blogs_Public {
 			if ($wp->query_vars["asoc_mode"] == "blog"){
 				//LATEST POSTS
 				echo "<h3>Gli ultimi post</h3>";
-				$latest = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/meta/compiledform/latest');
-				$latest = json_decode($latest);
-				
-				
+				$latest = @file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/meta/compiledform/latest');
+				$latest = @json_decode($latest);
 				
 			} else {
 				//TEAM PROFILE
