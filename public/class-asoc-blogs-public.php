@@ -314,8 +314,7 @@ class Asoc_Blogs_Public {
 						echo "<div class='team block datablock' style='background-image:url({$t->details->profile_image});'>";
 						echo "<h3>{$t->details->name}</h3>";
 						echo "<center>{$t->school->name}</center>";
-						echo "<center>{$t->school->city}</center>";
-						echo "<center style='font-size:0.8em'>{$t->application->school_province}</center>";
+						echo "<center>{$t->school->city} ({$t->application->school_province->lit})</center>";
 						echo "</div>";
 					echo "</a>";
 				}
