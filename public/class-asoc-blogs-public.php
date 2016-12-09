@@ -404,30 +404,33 @@ class Asoc_Blogs_Public {
 				$latest = @json_decode($latest);
 				
 			} else {
-				//TEAM PROFILE
-				echo "<center>";
-				echo "<img width='495' height='302' src='{$team->details->profile_image}'>";
-				echo "<h2>{$team->details->name}</h2>";
-				echo "<div class='school_name'>{$team->school->name}</div>";
-				echo "<div class='school_name'>{$team->application->school_municipality}</div>";
-				echo "<hr>";
 				
-				if($team->lesson_1_form){
-					echo "<div>Progetto OpenCoesione: ";
-					echo "<a href='{$team->lesson_1_form->oc_link}' target='_blank'><i class='fa fa-fw fa-world'></i>{$team->lesson_1_form->oc_name}</a>";
-					echo '</div>';
+				if ($wp->query_vars["asoc_team"] != "111"){ 
+					//TEAM PROFILE
+					echo "<center>";
+					echo "<img width='495' height='302' src='{$team->details->profile_image}'>";
+					echo "<h2>{$team->details->name}</h2>";
+					echo "<div class='school_name'>{$team->school->name}</div>";
+					echo "<div class='school_name'>{$team->application->school_municipality}</div>";
+					echo "<hr>";
+					
+					if($team->lesson_1_form){
+						echo "<div>Progetto OpenCoesione: ";
+						echo "<a href='{$team->lesson_1_form->oc_link}' target='_blank'><i class='fa fa-fw fa-world'></i>{$team->lesson_1_form->oc_name}</a>";
+						echo '</div>';
+					}
+					//echo '<div title="Tutte le scuole con tema Trasporti"><a href="?tema=Trasporti"><i class="fa fa-fw fa-tag"></i>Trasporti</a></div>';
+					//echo '<hr>';
+					echo "<div><i class='fa fa-fw fa-user'></i>{$team->support_edics[0]->name}</div>";
+					echo "<div><i class='fa fa-fw fa-users'></i>{$team->support_associations[0]->name}</div>";
+					echo '<hr>';
+					if($team->details->twitter)
+						echo "<div><i class='fa fa-fw fa-twitter'></i><a href='{$team->details->twitter}'>{$team->details->twitter}</a></div>";
+					if($team->details->web)
+						echo "<div><i class='fa fa-fw'></i><a href='{$team->details->web}'>Sito web</a></div>";
+					echo '</center>';
+					echo "<hr>";
 				}
-				//echo '<div title="Tutte le scuole con tema Trasporti"><a href="?tema=Trasporti"><i class="fa fa-fw fa-tag"></i>Trasporti</a></div>';
-				//echo '<hr>';
-				echo "<div><i class='fa fa-fw fa-user'></i>{$team->support_edics[0]->name}</div>";
-				echo "<div><i class='fa fa-fw fa-users'></i>{$team->support_associations[0]->name}</div>";
-				echo '<hr>';
-				if($team->details->twitter)
-					echo "<div><i class='fa fa-fw fa-twitter'></i><a href='{$team->details->twitter}'>{$team->details->twitter}</a></div>";
-				if($team->details->web)
-					echo "<div><i class='fa fa-fw'></i><a href='{$team->details->web}'>Sito web</a></div>";
-				echo '</center>';
-				echo "<hr>";
 			}
 			
 			echo "</div>";
