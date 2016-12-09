@@ -323,37 +323,37 @@ class Asoc_Blogs_Public {
 			}
 			if($wp->query_vars["asoc_mode"] == "team"){
 				if($team->lesson_1_form_published){
-					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_1_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({$team->lesson_1_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_1_form}'>Report Lezione 1</a>";
 					echo "</div>";
 				}
 				if($team->lesson_2_form_published){
-					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_2_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({$team->lesson_2_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_2_form}'>Report Lezione 2</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_published){
-					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_3_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({$team->lesson_3_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form}'>Report Lezione 3</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_event_published){
-					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_3_form_event_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({$team->lesson_3_form_event_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_event}'>Report Lezione 3 - Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_post_published){
-					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_3_form_post_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({$team->lesson_3_form_post_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_post}'>Report Lezione 3 - Resoconto Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_4_form_published){
-					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_4_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({$team->lesson_4_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_4_form}'>Report Lezione 4</a>";
 					echo "</div>";
 				}
 				if($team->lesson_5_form_published){
-					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_5_image});'>";
+					echo "<div class='report block datablock' style='background-image:url({$team->lesson_5_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_5_form}'>Report Lezione 5</a>";
 					echo "</div>";
 				} 
