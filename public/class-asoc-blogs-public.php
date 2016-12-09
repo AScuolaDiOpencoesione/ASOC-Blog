@@ -232,7 +232,7 @@ class Asoc_Blogs_Public {
 				echo '</div>';
 				echo '</div>';
 				echo "<div class='container'>";
-				echo "<h1>Blog Team Scuola {$team->details->name}</h1>";
+				echo "<h1>Blog Team Classe {$team->details->name}</h1>";
 				echo "</div>";
 			} elseif($wp->query_vars["asoc_mode"] == "post"){
 				echo '<div class="container">';
@@ -278,21 +278,21 @@ class Asoc_Blogs_Public {
 				echo "<div class='container' style='width:50%;margin-left:25%;margin-right:25%;'>";
 				
 				echo "<div class='' style='width:30%;float:left;'>";
-				echo "<select data-sel='region'>";
+				echo "<select class='filters' data-sel='region'>";
 					echo "<option>Seleziona una Regione</option>";
 				foreach($regions as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
 				echo "</div>";
 				echo "<div class='' style='width:30%;float:left;'>";
-				echo "<select data-sel='provinces'>";
+				echo "<select class='filters' data-sel='provinces'>";
 					echo "<option>Seleziona una Provincia</option>";
 				foreach($provinces as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
 				echo "</div>";
 				echo "<div class='' style='width:30%;float:right;'>";
-				echo "<select data-sel='octopics'>";
+				echo "<select class='filters' data-sel='octopics'>";
 					echo "<option>Seleziona un Tema OpenCoesione</option>";
 				foreach($octopics as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
@@ -315,7 +315,7 @@ class Asoc_Blogs_Public {
 						echo "<h3>{$t->details->name}</h3>";
 						echo "<center>{$t->school->name}</center>";
 						echo "<center>{$t->school->city}</center>";
-						echo "<center style='font-size:0.8em'>{$t->aplication->school_province}</center>";
+						echo "<center style='font-size:0.8em'>{$t->application->school_province}</center>";
 						echo "</div>";
 					echo "</a>";
 				}
@@ -323,37 +323,37 @@ class Asoc_Blogs_Public {
 			}
 			if($wp->query_vars["asoc_mode"] == "team"){
 				if($team->lesson_1_form_published){
-					echo "<div class='report block datablock'>";
+					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_1_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_1_form}'>Report Lezione 1</a>";
 					echo "</div>";
 				}
 				if($team->lesson_2_form_published){
-					echo "<div class='report block datablock'>";
+					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_2_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_2_form}'>Report Lezione 2</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_published){
-					echo "<div class='report block datablock'>";
+					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_3_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form}'>Report Lezione 3</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_event_published){
-					echo "<div class='report block datablock'>";
+					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_3_form_event_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_event}'>Report Lezione 3 - Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_3_form_post_published){
-					echo "<div class='report block datablock'>";
+					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_3_form_post_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_3_form_post}'>Report Lezione 3 - Resoconto Open Data Day</a>";
 					echo "</div>";
 				}
 				if($team->lesson_4_form_published){
-					echo "<div class='report block datablock'>";
+					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_4_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_4_form}'>Report Lezione 4</a>";
 					echo "</div>";
 				}
 				if($team->lesson_5_form_published){
-					echo "<div class='report block datablock'>";
+					echo "<div class='report block datablock' style='background-image:url({$$team->lesson_5_image});'>";
 					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$team->id}/{$team->lesson_5_form}'>Report Lezione 5</a>";
 					echo "</div>";
 				} 
@@ -371,6 +371,9 @@ class Asoc_Blogs_Public {
 							if($field->valid){
 								switch($ffield->t->t){
 									case "url":
+										echo "<a href='{$field->value}'>{$field->value}</a>";
+										break;
+									case "file":
 										echo "<a href='{$field->value}'>{$field->value}</a>";
 										break;
 									case "img":
