@@ -371,13 +371,13 @@ class Asoc_Blogs_Public {
 							if($field->valid){
 								switch($ffield->t->t){
 									case "url":
-										echo "<a href='{$field->value}'>{$field->value}</a>";
+										echo "<p><a href='{$field->value}'>{$field->value}</a></p>";
 										break;
 									case "file":
-										echo "<a href='{$field->value}'>{$field->value}</a>";
+										echo "<p><a href='{$field->value}'>{$field->value}</a></p>";
 										break;
 									case "img":
-										echo "<img src='{$field->value}'>";
+										echo "<p><img src='{$field->value}'></p>";
 										break;
 									default:
 										echo "<p>{$field->value}</p>";
