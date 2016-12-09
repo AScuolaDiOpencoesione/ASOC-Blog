@@ -426,8 +426,8 @@ class Asoc_Blogs_Public {
 					echo '<hr>';
 					if($team->details->twitter)
 						echo "<div><i class='fa fa-fw fa-twitter'></i><a href='{$team->details->twitter}'>{$team->details->twitter}</a></div>";
-					if($team->details->web)
-						echo "<div><i class='fa fa-fw'></i><a href='{$team->details->web}'>Sito web</a></div>";
+					if($team->details->website)
+						echo "<div><i class='fa fa-fw fa-globe'></i><a href='{$team->details->website}'>Sito web</a></div>";
 					echo '</center>';
 					echo "<hr>";
 				}
