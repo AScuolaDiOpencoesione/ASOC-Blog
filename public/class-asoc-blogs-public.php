@@ -373,7 +373,8 @@ class Asoc_Blogs_Public {
 										echo "<p><a href='{$field->value}'>{$field->value}</a></p>";
 										break;
 									case "file":
-										echo "<p><a href='{$field->value}'>{$field->value}</a></p>";
+										//echo "<p><img src='{$field->value}'></p>";
+										echo "<p><a class='btn' href='{$field->value}'>Scarica il {$ffield->label}</a></p>";
 										break;
 									case "img":
 										echo "<p><img src='{$field->value}'></p>";
