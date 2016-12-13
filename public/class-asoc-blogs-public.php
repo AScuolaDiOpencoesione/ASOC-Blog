@@ -302,12 +302,12 @@ class Asoc_Blogs_Public {
 							"province":false,
 							"octopic":false
 						};
-						$(".filter").on("change", function(){
-							console.log($(this).val());
-							if ($(this).val() == "")
-								filters[$(this).data("filtertype")] = false;
+						$(".filter").on("change", function(evt){
+							console.log($(evt.target).val());
+							if ($(evt.target).val() == "")
+								filters[$(evt.target).data("filtertype")] = false;
 							else
-								filters[$(this).data("filtertype")] = $(this).val();
+								filters[$(evt.target).data("filtertype")] = $(evt.target).val();
 							console.log(filters);
 						});
 					</script>
