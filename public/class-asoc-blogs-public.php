@@ -303,7 +303,11 @@ class Asoc_Blogs_Public {
 							"octopic":false
 						};
 						$(".filter").on("change", function(){
-							filters[$(this).data("filtertype")] = $(this).val();
+							console.log($(this).val());
+							if ($(this).val() == "")
+								filters[$(this).data("filtertype")] = false;
+							else
+								filters[$(this).data("filtertype")] = $(this).val();
 							console.log(filters);
 						});
 					</script>
