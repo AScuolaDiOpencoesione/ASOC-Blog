@@ -114,10 +114,10 @@ class Asoc_Blogs_Public {
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				
-				$regions = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/');
-				$provinces = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/');
-				$octopics = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/');
-				$teams = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/');
+				$regions = $this->get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*3);
+				$provinces = $this->get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*3);
+				$octopics = $this->get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*3);
+				$teams = $this->get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 365*24*60*3);
 				
 				$regions = json_decode($regions);
 				$provinces = json_decode($provinces);
@@ -126,7 +126,7 @@ class Asoc_Blogs_Public {
 				
 				$surl = "http://".$testsrvr."api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
 				//echo($surl);
-				$section_raw = file_get_contents($surl);
+				$section_raw = $this->get_cached($surl, 60);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
 				//var_dump($section);
