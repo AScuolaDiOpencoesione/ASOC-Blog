@@ -73,6 +73,17 @@ class Asoc_Blogs_Public {
 		add_rewrite_tag('%asoc_team%', '([^/]*)');
 		add_rewrite_tag('%asoc_post%', '([^/]*)');
 	}
+	
+	private function get_cached($url, $time){
+		
+		$v = apc_fetch($url);
+		if($v) {
+			return $v;
+		} else {
+		   $file = file_get_contents($url);
+		   apc_store($url, $file, $time*60);
+		}
+	}
 
 	public function wpse9870_query_vars( $query_vars )
 	{
