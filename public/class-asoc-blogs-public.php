@@ -305,9 +305,9 @@ class Asoc_Blogs_Public {
 						$(".filter").on("change", function(evt){
 							console.log($(evt.target).val());
 							if ($(evt.target).val() == "")
-								filters[$(evt.target).data("filtertype")] = false;
+								filters[$(this).data("filtertype")] = false;
 							else
-								filters[$(evt.target).data("filtertype")] = $(evt.target).val();
+								filters[$(this).data("filtertype")] = $(evt.target).val();
 							console.log(filters);
 						});
 					</script>
