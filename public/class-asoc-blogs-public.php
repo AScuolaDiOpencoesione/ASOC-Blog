@@ -309,7 +309,19 @@ class Asoc_Blogs_Public {
 							else
 								filters[$(this).data("filtertype")] = $(evt.target).val();
 							console.log(filters);
+							applyFilter();
 						});
+						
+						function applyFilter() {
+							to_show = ".filterable";
+							$(to_show).hide();
+							for (r in filters){
+								if (filters[r])
+									to_show += "."+r+"_"+filters[r];
+							}
+							
+							$(to_show).show();
+						}
 					</script>
 				';
 				echo "</div>";
@@ -323,7 +335,7 @@ class Asoc_Blogs_Public {
 				//var_dump($teams);
 				foreach($teams as $t){
 					//<a target="_blank" href="?team=1421"><div class="team_name">Work In Progress</div><div class="argomento">Tema: Inclusione sociale</div><div class="school_name">Liceo Scientifico "Francesco La Cava"</div><div class="school_name">Bovalino (RC)</div></a>
-					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$t->id}' class='school_{$t->id} province_{$t->application->school_province->id} region_{$t->application->school_region->id}' style='color:black;'>";
+					echo "<a href='/{$testsrvr}blogs/{$section->id}/{$t->id}' class='filterable school_{$t->id} province_{$t->application->school_province->id} region_{$t->application->school_region->id}' style='color:black;'>";
 						echo "<div class='team block datablock' style='background-image:url({$t->details->profile_image});'>";
 						echo "<h3>{$t->details->name}</h3>";
 						echo "<center>{$t->school->name}</center>";
