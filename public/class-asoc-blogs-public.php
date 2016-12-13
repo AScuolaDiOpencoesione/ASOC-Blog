@@ -319,7 +319,7 @@ class Asoc_Blogs_Public {
 								if (filters[r])
 									to_show += "."+r+"_"+filters[r];
 							}
-							
+							console.log(to_show);
 							$(to_show).show();
 						}
 					</script>
