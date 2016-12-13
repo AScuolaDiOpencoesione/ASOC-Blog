@@ -276,21 +276,21 @@ class Asoc_Blogs_Public {
 				
 				echo "<div class='filter' data-filtertype='region' style='width:30%;float:left;'>";
 				echo "<select class='filters' data-sel='region'>";
-					echo "<option>Seleziona una Regione</option>";
+					echo "<option value=''>Seleziona una Regione</option>";
 				foreach($regions as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
 				echo "</div>";
 				echo "<div class='filter' data-filtertype='province' style='width:30%;float:left;'>";
 				echo "<select class='filters' data-sel='provinces'>";
-					echo "<option>Seleziona una Provincia</option>";
+					echo "<option value=''>Seleziona una Provincia</option>";
 				foreach($provinces as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
 				echo "</div>";
 				echo "<div class='filter' data-filtertype='octopic' style='width:30%;float:right;'>";
 				echo "<select class='filters' data-sel='octopics'>";
-					echo "<option>Seleziona un Tema OpenCoesione</option>";
+					echo "<option value=''>Seleziona un Tema OpenCoesione</option>";
 				foreach($octopics as $r) 
 					echo "<option value='{$r->id}'>{$r->name}</option>";
 				echo "</select>";
