@@ -261,6 +261,13 @@ class Asoc_Blogs_Public {
 				echo '<script src="https://cdn.rawgit.com/hiasinho/Leaflet.vector-markers/master/dist/leaflet-vector-markers.min.js"></script>';
 				echo '<link rel="stylesheet" href="https://cdn.rawgit.com/hiasinho/Leaflet.vector-markers/master/dist/leaflet-vector-markers.css" />';
 				echo '<script>';
+				echo '
+						function onEachFeature(feature, layer) {
+						    if (feature.properties) {
+						        layer.bindPopup($(".filterable.school_"+feature.properties.id).clone());
+						    }
+						}
+				';
 				echo 'var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {';
 				echo '	attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"https://carto.com/attributions\">CARTO</a>"';
 				echo '});';
