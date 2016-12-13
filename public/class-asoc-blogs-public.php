@@ -262,18 +262,21 @@ class Asoc_Blogs_Public {
 				echo '<link rel="stylesheet" href="https://cdn.rawgit.com/hiasinho/Leaflet.vector-markers/master/dist/leaflet-vector-markers.css" />';
 				echo '<script>';
 				echo '
-						function onEachFeature(feature, layer) {
-						    if (feature.properties) {
-						        layer.bindPopup($(".filterable.school_"+feature.properties.id).clone());
-						    }
-						}
+						function onEachFeature(feat) {
+							let f = feat;
+							retrurn function(e){
+								var popup = e.target.getPopup();
+						        popup.setContent($(".school_"+f.id).clone());
+						        popup.update();
+							}
+					    }
 				';
 				echo 'var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {';
 				echo '	attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"https://carto.com/attributions\">CARTO</a>"';
 				echo '});';
 				echo 'var map = L.map("map").setView([42.45588764197166, 13.9306640625], 5.5);';
 				echo 'var icon = L.VectorMarkers.icon({icon:"university", markerColor:"#ec6858", "prefix":"fa"});';
-				echo '$.getJSON("http://'.$testsrvr.'api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}); }, onEachFeature:onEachFeature }); map.addLayer(geojsonLayer); });';
+				echo '$.getJSON("http://'.$testsrvr.'api.ascuoladiopencoesione.it/partner/schools/geojson", function(data){ geojsonLayer = L.geoJson(data, {pointToLayer:function (feature, latlng) { return L.marker(latlng, {icon:icon}).on("click", onEachFeature(feature)); }}); map.addLayer(geojsonLayer); });';
 				echo 'map.addLayer(bglayer);';
 				echo '</script>';
 				echo '<div></div>';
