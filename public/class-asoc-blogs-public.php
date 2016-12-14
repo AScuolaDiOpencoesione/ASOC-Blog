@@ -303,7 +303,7 @@ class Asoc_Blogs_Public {
 					    }
 				';
 				echo 'var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {';
-				echo '	attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors, &copy; <a href=\"https://carto.com/attributions\">CARTO</a>"';
+				echo '	attribution: "&copy; <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors, &copy; <a href=\'https://carto.com/attributions\'>CARTO</a>"';
 				echo '});';
 				echo 'var map = L.map("map").setView([42.45588764197166, 13.9306640625], 5.5);';
 				echo 'var icon = L.VectorMarkers.icon({icon:"university", markerColor:"#ec6858", "prefix":"fa"});';
