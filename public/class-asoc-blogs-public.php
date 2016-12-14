@@ -94,29 +94,31 @@ class Asoc_Blogs_Public {
 	    $query_vars[] = 'asoc_post';
 	    return $query_vars;
 	}
+	
+	public function get_content($file,$url,$hours = 24,$fn = '',$fn_args = '') {
+		//vars
+		$current_time = time(); $expire_time = $hours * 60 * 60; $file_time = filemtime($file);
+		//decisions, decisions
+		if(file_exists($file) && ($current_time - $expire_time < $file_time)) {
+			//echo 'returning from cached file';
+			return file_get_contents($file);
+		}
+		else {
+			$content = get_url($url);
+			if($fn) { $content = $fn($content,$fn_args); }
+			$content.= '<!-- cached:  '.time().'-->';
+			file_put_contents($file,$content);
+			//echo 'retrieved fresh from '.$url.':: '.$content;
+			return $content;
+		}
+	}
+
 	public function wpse9870_parse_request( &$wp )
 	{
 		if ( array_key_exists( 'asoc_blog', $wp->query_vars ) ) {
 			
 			/* gets the contents of a file if it exists, otherwise grabs and caches */
-			function get_content($file,$url,$hours = 24,$fn = '',$fn_args = '') {
-				//vars
-				$current_time = time(); $expire_time = $hours * 60 * 60; $file_time = filemtime($file);
-				//decisions, decisions
-				if(file_exists($file) && ($current_time - $expire_time < $file_time)) {
-					//echo 'returning from cached file';
-					return file_get_contents($file);
-				}
-				else {
-					$content = get_url($url);
-					if($fn) { $content = $fn($content,$fn_args); }
-					$content.= '<!-- cached:  '.time().'-->';
-					file_put_contents($file,$content);
-					//echo 'retrieved fresh from '.$url.':: '.$content;
-					return $content;
-				}
-			}
-
+	
 			
 			$testsrvr = $wp->query_vars["asoc_blog"];
 			$testsrvr = $testsrvr == "1"?"":"test";
@@ -134,10 +136,10 @@ class Asoc_Blogs_Public {
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				
-				$regions = get_content("cache/regions.json", 'http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*3);
-				$provinces = get_content("cache/provinces.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*3);
-				$octopics = get_content("cache/topics.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*3);
-				$teams = get_content("cache/teams.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 365*24*60*3);
+				$regions = $this->get_content("cache/regions.json", 'http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*3);
+				$provinces = $this->get_content("cache/provinces.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*3);
+				$octopics = $this->get_content("cache/topics.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*3);
+				$teams = $this->get_content("cache/teams.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 365*24*60*3);
 				
 				$regions = json_decode($regions);
 				$provinces = json_decode($provinces);
