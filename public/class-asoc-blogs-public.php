@@ -298,8 +298,10 @@ class Asoc_Blogs_Public {
 				echo '<script>';
 				echo '
 						function onEachFeature(feat) {
-							let f = feat.properties;
-							return $(".school_"+f.id).clone();
+							return function(){
+								let f = feat.properties;
+								return $(".school_"+f.id).clone();
+							}
 					    }
 				';
 				echo 'var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {';
