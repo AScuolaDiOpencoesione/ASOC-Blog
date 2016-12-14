@@ -1,4 +1,24 @@
 <?php
+if (!function_exists('get_cached')) {
+	function get_cached($url, $time) {
+		@mkdir('__cache');
+		$md5 = md5($url);
+		$file = "__cache/{$md5}";
+		if (file_exists($file) && time()-filemtime($file) < $time*60)
+			return @file_get_contents($file);
+		$content = @file_get_contents($url);
+		file_put_contents($file, $content);
+		return $content;
+	}
+}
+if (!function_exists('clear_cached')) {
+	function clear_cached($url) {
+		$md5 = md5($url);
+		$file = "tedx_cache/{$md5}";
+		@unlink($file);
+
+	}
+}
 
 /**
  * The public-facing functionality of the plugin.
@@ -106,7 +126,6 @@ class Asoc_Blogs_Public {
 		else {
 			$content = get_url($url);
 			if($fn) { $content = $fn($content,$fn_args); }
-			$content.= '<!-- cached:  '.time().'-->';
 			file_put_contents($file,$content);
 			//echo 'retrieved fresh from '.$url.':: '.$content;
 			return $content;
@@ -136,10 +155,10 @@ class Asoc_Blogs_Public {
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				
-				$regions = $this->get_content("cache/regions.json", 'http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*3);
-				$provinces = $this->get_content("cache/provinces.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*3);
-				$octopics = $this->get_content("cache/topics.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*3);
-				$teams = $this->get_content("cache/teams.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 365*24*60*3);
+				$regions = get_cached("cache/regions.json", 'http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*3);
+				$provinces = get_cached("cache/provinces.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*3);
+				$octopics = get_cached("cache/topics.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*3);
+				$teams = get_cached("cache/teams.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 365*24*60*3);
 				
 				$regions = json_decode($regions);
 				$provinces = json_decode($provinces);
@@ -148,7 +167,7 @@ class Asoc_Blogs_Public {
 				
 				$surl = "http://".$testsrvr."api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
 				//echo($surl);
-				$section_raw = $this->get_cached($surl, 60);
+				$section_raw = get_cached($surl, 60);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
 				//var_dump($section);
