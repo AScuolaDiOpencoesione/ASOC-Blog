@@ -141,7 +141,7 @@ class Asoc_Blogs_Public {
 				$regions = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*60*3);
 				$provinces = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*60*3);
 				$octopics = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*60*3);
-				$teams = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 60*10);
+				$teams = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 60*30);
 				
 				$regions = json_decode($regions);
 				$provinces = json_decode($provinces);
@@ -150,23 +150,23 @@ class Asoc_Blogs_Public {
 				
 				$surl = "http://".$testsrvr."api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"];
 				//echo($surl);
-				$section_raw = get_cached($surl, 60);
+				$section_raw = get_cached($surl, 365*24*60*60*3);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
 				//var_dump($section);
 			} elseif($wp->query_vars["asoc_mode"] == "team"){
-				$section_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
+				$section_raw = get_cached("http://{$testsrvr}api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"], 365*24*60*60*3);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
-				$team_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
+				$team_raw = get_cached("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"],60*5);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
 				//var_dump($team);
 			} elseif(get_query_var-("asoc_mode") == "post"){
-				$section_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"]);
+				$section_raw = get_cached("http://{$testsrvr}api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"], 365*24*60*60*3);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
-				$team_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
+				$team_raw = get_cached("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"],60*5);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
 				$post_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/meta/compiledform/".$wp->query_vars["asoc_post"]);
@@ -467,7 +467,13 @@ class Asoc_Blogs_Public {
 				//LATEST POSTS
 				echo "<h3>Gli ultimi post</h3>";
 				$latest = @file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/meta/compiledform/latest');
-				$latest = @json_decode($latest);
+				$latest = json_decode($latest);
+				
+				foreach($latest as $lu){
+					echo "<div>";
+					echo "<a href='/blogs/1/{$lu->author}/{$lu->id}'>Report: {$lu->tdr}</a>";
+					echo "</div>";
+				}
 				
 			} else {
 				
