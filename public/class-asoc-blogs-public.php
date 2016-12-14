@@ -300,7 +300,7 @@ class Asoc_Blogs_Public {
 						function onEachFeature(feat) {
 							return function(){
 								let f = feat.properties;
-								return $(".school_"+f.id).clone();
+								return $(".school_"+f.school.id).clone().html();
 							}
 					    }
 				';
