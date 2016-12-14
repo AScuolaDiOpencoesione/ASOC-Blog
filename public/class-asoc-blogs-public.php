@@ -212,6 +212,7 @@ class Asoc_Blogs_Public {
 .block{
 	background-size:cover; 
 	background-position:center center; 
+	background-color:white;
 }
 .block *{
 	text-align: center;
@@ -300,7 +301,9 @@ class Asoc_Blogs_Public {
 						function onEachFeature(feat) {
 							return function(){
 								let f = feat.properties;
-								return $(".school_"+f.team.id).clone().html();
+								let xx = $(".school_"+f.team.id).clone().html();
+								xx = "<div>"+xx+"</div>";
+								return xx;
 							}
 					    }
 				';
