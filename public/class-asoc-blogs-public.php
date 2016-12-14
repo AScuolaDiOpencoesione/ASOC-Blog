@@ -5,8 +5,8 @@ if (!function_exists('get_cached')) {
 		$md5 = md5($url);
 		$file = "__cache/{$md5}";
 		if (file_exists($file) && time()-filemtime($file) < $time*60)
-			return @file_get_contents($file);
-		$content = @file_get_contents($url);
+			return file_get_contents($file);
+		$content = file_get_contents($url);
 		file_put_contents($file, $content);
 		return $content;
 	}
