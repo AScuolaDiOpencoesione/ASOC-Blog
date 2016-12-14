@@ -138,10 +138,10 @@ class Asoc_Blogs_Public {
 			
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				
-				$regions = get_cached("cache/regions.json", 'http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*60*3);
-				$provinces = get_cached("cache/provinces.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*60*3);
-				$octopics = get_cached("cache/topics.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*60*3);
-				$teams = get_cached("cache/teams.json",'http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 60*10);
+				$regions = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/region/', 365*24*60*60*3);
+				$provinces = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/province/', 365*24*60*60*3);
+				$octopics = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/octopic/', 365*24*60*60*3);
+				$teams = get_cached('http://'.$testsrvr.'api.ascuoladiopencoesione.it/team/', 60*10);
 				
 				$regions = json_decode($regions);
 				$provinces = json_decode($provinces);
