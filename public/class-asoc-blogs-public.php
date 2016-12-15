@@ -301,7 +301,7 @@ class Asoc_Blogs_Public {
 						function onEachFeature(feat) {
 							return function(){
 								let f = feat.properties;
-								let xx = $(".school_"+f.team.id).clone().html();
+								let xx = $(".school_"+f.team.id).clone(true).html();
 								xx = "<div>"+xx+"</div>";
 								return xx;
 							}
