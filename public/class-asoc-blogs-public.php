@@ -242,6 +242,10 @@ class Asoc_Blogs_Public {
 	border-style: none;
 }
 
+.leaflet-popup .block{
+	float:none;
+}
+
 </style>
 ';
 			
@@ -301,7 +305,8 @@ class Asoc_Blogs_Public {
 						function onEachFeature(feat) {
 							return function(){
 								let f = feat.properties;
-								let xx = $(".school_"+f.team.id).html();
+								let xx = $(".school_"+f.team.id).wrap("<div/>").parent().html();
+								$(".school_"+f.team.id).unwrap();
 								xx = "<div>"+xx+"</div>";
 								return xx;
 							}
