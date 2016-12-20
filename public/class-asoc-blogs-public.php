@@ -178,7 +178,8 @@ class Asoc_Blogs_Public {
 			$style = '
 <style type="text/css">	
 #map{
-	height: 500px;
+	height: 600px;
+	margin-bottom:20px;
 }
 
 .block{
