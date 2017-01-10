@@ -120,7 +120,36 @@ class Asoc_Blogs_Public {
 		if ( array_key_exists( 'asoc_blog', $wp->query_vars ) ) {
 			
 			/* gets the contents of a file if it exists, otherwise grabs and caches */
-	
+			$intro_scripts = '
+			<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.8&appId=754258224654463";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, \'script\', \'facebook-jssdk\'));</script>
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: \'it\'}
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+			';
 			
 			$testsrvr = $wp->query_vars["asoc_blog"];
 			$testsrvr = $testsrvr == "1"?"":"test";
@@ -247,6 +276,20 @@ class Asoc_Blogs_Public {
 	float:none;
 }
 
+
+.panel {
+	border-left:2px solid #666;
+	
+}
+
+.panel li{
+	list-style:disc;
+}
+
+.panel a{
+	color: #439695;
+	text-decoration:none;
+}
 </style>
 ';
 			
@@ -439,6 +482,10 @@ class Asoc_Blogs_Public {
 				/* Post */
 				echo "<h1>".$post->name."</h1>";
 				echo "<hr>";
+				echo '<div class=" halign fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='.urlencode($_SERVER['REQUEST_URI']).'">Condividi</a></div>';
+				echo '<a class="halign twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>';
+				echo '<div class="halign g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>';
+				echo "<hr>";
 				
 				foreach($post->form->fields as $ffield){
 					echo "<h2>".$ffield->label."</h2>";
@@ -476,6 +523,7 @@ class Asoc_Blogs_Public {
 			
 			if ($wp->query_vars["asoc_mode"] == "blog"){
 				//LATEST POSTS
+				echo "<div class='panel'>";
 				echo "<h3>Gli ultimi post</h3>";
 				$latest = file_get_contents('http://'.$testsrvr.'api.ascuoladiopencoesione.it/meta/compiledform/latest');
 				$latest = json_decode($latest);
@@ -484,6 +532,8 @@ class Asoc_Blogs_Public {
 					echo "<a href='/blogs/1/{$lu->author}/{$lu->id}'>Report: {$lu->tdr}</a>";
 					echo "</div>";
 				}
+				echo '<a class="twitter-timeline" href="https://twitter.com/ascuoladioc">Tweets di ASOC</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+				//echo '<a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks">I team di ASOC 1617</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
 				
 			} else {
 				
@@ -512,6 +562,8 @@ class Asoc_Blogs_Public {
 						echo "<div><i class='fa fa-fw fa-globe'></i><a href='{$team->details->website}'>Sito web</a></div>";
 					echo '</center>';
 					echo "<hr>";
+					echo '<a class="twitter-timeline" href="{$team->details->twitter}">Gli ultimi Tweet</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+
 				}
 			}
 			
