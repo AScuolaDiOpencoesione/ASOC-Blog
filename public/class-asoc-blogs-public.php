@@ -279,6 +279,7 @@ class Asoc_Blogs_Public {
 
 .panel {
 	border-left:2px solid #666;
+	padding-left:4px;
 	
 }
 
