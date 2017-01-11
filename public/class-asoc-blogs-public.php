@@ -562,7 +562,7 @@ class Asoc_Blogs_Public {
 						echo "<div><i class='fa fa-fw fa-globe'></i><a href='{$team->details->website}'>Sito web</a></div>";
 					echo '</center>';
 					echo "<hr>";
-					echo '<a class="twitter-timeline" href="{$team->details->twitter}">Gli ultimi Tweet</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+					echo '<a class="twitter-timeline" href="'.$team->details->twitter.'">Gli ultimi Tweet</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
 
 				}
 			}
