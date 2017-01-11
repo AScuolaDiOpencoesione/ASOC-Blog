@@ -537,7 +537,8 @@ class Asoc_Blogs_Public {
 					echo "<a href='/blogs/1/{$lu->author}/{$lu->id}'>Report: {$lu->tdr}</a>";
 					echo "</div>";
 				}
-				echo '<a class="twitter-timeline" href="https://twitter.com/ascuoladioc">Tweets di ASOC</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+				echo '<a class="twitter-timeline" href="https://twitter.com/hashtag/asoc1617">Tweets di #ASOC1617</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+				//echo '            <a class="twitter-timeline"  href="https://twitter.com/hashtag/asoc1617" data-widget-id="819177370389282817">#asoc1617 Tweets</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
 				//echo '<a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks">I team di ASOC 1617</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
 				
 			} else {
@@ -547,6 +548,7 @@ class Asoc_Blogs_Public {
 					echo "<center>";
 					echo "<img width='495' height='302' src='{$team->details->profile_image}'>";
 					echo "<h2>{$team->details->name}</h2>";
+					echo "<h3>TEAM ASOC1617 {$team->applicaiton->id}</h3>";
 					echo "<div class='school_name'>{$team->school->name}</div>";
 					echo "<div class='school_name'>{$team->application->school_municipality}</div>";
 					echo "<hr>";
