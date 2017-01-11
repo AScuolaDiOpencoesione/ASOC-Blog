@@ -291,6 +291,10 @@ class Asoc_Blogs_Public {
 	color: #439695;
 	text-decoration:none;
 }
+
+.halign{
+	float:left;
+}
 </style>
 ';
 			
@@ -483,7 +487,7 @@ class Asoc_Blogs_Public {
 				/* Post */
 				echo "<h1>".$post->name."</h1>";
 				echo "<hr>";
-				echo '<div class=" halign fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='.urlencode($_SERVER['REQUEST_URI']).'">Condividi</a></div>';
+				echo '<div class=" halign fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'">Condividi</a></div>';
 				echo '<a class="halign twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>';
 				echo '<div class="halign g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>';
 				echo "<hr>";
