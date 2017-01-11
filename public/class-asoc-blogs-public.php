@@ -548,7 +548,7 @@ class Asoc_Blogs_Public {
 					echo "<center>";
 					echo "<img width='495' height='302' src='{$team->details->profile_image}'>";
 					echo "<h2>{$team->details->name}</h2>";
-					echo "<h3>TEAM ASOC1617 {$team->applicaiton->id}</h3>";
+					echo "<h3>TEAM ASOC1617 {$team->application->id}</h3>";
 					echo "<div class='school_name'>{$team->school->name}</div>";
 					echo "<div class='school_name'>{$team->application->school_municipality}</div>";
 					echo "<hr>";
