@@ -499,7 +499,7 @@ class Asoc_Blogs_Public {
 							if($field->valid){
 								switch($ffield->t->t){
 									case "url":
-										echo "<p><a href='{$field->value}'>{$field->value}</a></p>";
+										echo "<p><a target='_blank' href='{$field->value}'>{$field->value}</a></p>";
 										break;
 									case "file":
 										if ((strpos($field->value, 'jpg') !== false) || (strpos($field->value, 'jpeg') !== false) || (strpos($field->value, 'png') !== false))
