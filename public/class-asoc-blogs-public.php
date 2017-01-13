@@ -295,6 +295,26 @@ class Asoc_Blogs_Public {
 .halign{
 	float:left;
 }
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+}
+
+ul.share-buttons li{
+  display: inline;
+}
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
 </style>
 ';
 			
@@ -487,9 +507,14 @@ class Asoc_Blogs_Public {
 				/* Post */
 				echo "<h1>".$post->name."</h1>";
 				echo "<hr>";
-				echo '<div class=" halign fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'">Condividi</a></div>';
-				echo '<a class="halign twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>';
-				echo '<div class="halign g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>';
+				//echo '<div class=" halign fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'">Condividi</a></div>';
+				//echo '<a class="halign twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>';
+				//echo '<div class="halign g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>';
+				echo '<ul class="share-buttons">
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'&t=A%20Scuola%20di%20OpenCoesione" target="_blank" title="Condividi su Facebook"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'&text=A%20Scuola%20di%20OpenCoesione:%20http%3A%2F%2Fwww.ascuoladiopencoesione.it%2Fblogs%2F1%2F111%2F46850" target="_blank" title="Condividi su Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+  <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'" target="_blank" title="Condividi su Google+"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a></li>
+</ul>';
 				echo "<hr>";
 				
 				foreach($post->form->fields as $ffield){
