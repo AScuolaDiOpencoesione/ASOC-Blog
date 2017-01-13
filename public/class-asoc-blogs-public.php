@@ -512,9 +512,9 @@ ul.share-buttons .sr-only {
 				//echo '<a class="halign twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>';
 				//echo '<div class="halign g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>';
 				echo '<ul class="share-buttons">
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'&t=A%20Scuola%20di%20OpenCoesione" target="_blank" title="Condividi su Facebook"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'&text=A%20Scuola%20di%20OpenCoesione:%20http%3A%2F%2Fwww.ascuoladiopencoesione.it%2Fblogs%2F1%2F111%2F46850" target="_blank" title="Condividi su Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
-  <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'" target="_blank" title="Condividi su Google+"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a></li>
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'&t=A%20Scuola%20di%20OpenCoesione" target="_blank" title="Condividi su Facebook"><i class="fa fa-facebook-square fa-2x" aria-hidden="true" style="color:#3B5998"></i><span class="sr-only">Share on Facebook</span></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'&text=A%20Scuola%20di%20OpenCoesione:%20http%3A%2F%2Fwww.ascuoladiopencoesione.it%2Fblogs%2F1%2F111%2F46850" target="_blank" title="Condividi su Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true" style="color:#1DA1F2"></i><span class="sr-only">Tweet</span></a></li>
+  <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'" target="_blank" title="Condividi su Google+"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true" style="color:#DC4E41"></i><span class="sr-only">Share on Google+</span></a></li>
 </ul>';
 				echo "<hr>";
 				
