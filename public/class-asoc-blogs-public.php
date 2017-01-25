@@ -536,6 +536,10 @@ ul.share-buttons .sr-only {
 									case "img":
 										echo "<p><img src='{$field->value}'></p>";
 										break;
+									case "point":
+										echo "<div id='map_id' style='width:100%;height:200px' data-center='{$field->geoj}' data-zoom='18'></div>";
+										echo "<div class=''>{$field->addr}</div>";
+										break;
 									default:
 										echo "<p>{$field->value}</p>";
 										break;
