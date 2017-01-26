@@ -553,7 +553,7 @@ ul.share-buttons .sr-only {
 										echo '});';
 										echo "var map = L.map('map_id').setView({$geoj}, 19);";
 										echo "var mar = L.marker({$geoj});";
-										echo "mar.addTo(map);";
+										echo "mar.addTo(map); bglayer.addTo(map);";
 										echo "</script>";
                                         echo "<div class='map_addr'>Indirizzo: {$field->value->addr}</div>";
                                         break;
