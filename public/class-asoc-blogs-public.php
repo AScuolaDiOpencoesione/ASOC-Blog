@@ -536,10 +536,16 @@ ul.share-buttons .sr-only {
 									case "img":
 										echo "<p><img src='{$field->value}'></p>";
 										break;
+									case "multiple c":
+										echo "<ul>";
+										foreach($field->value as $k =>$v)
+											echo "<li>{$k}</li>";
+										echo "</ul>";
+										break;
 									case "point":
 										echo $field->value;
-                                        echo "<div id='map_id' style='width:100%;height:200px' data-center='{$field->value->geoj}' data-zoom='18'></div>";
-                                        echo "<div class=''>{$field->value->addr}</div>";
+                                        echo "<div id='map_id' style='width:100%;height:200px' data-center='{$field->value['geoj']}' data-zoom='18'></div>";
+                                        echo "<div class=''>{$field->value['addr']}</div>";
                                         break;
 									default:
 										echo "<p>{$field->value}</p>";
