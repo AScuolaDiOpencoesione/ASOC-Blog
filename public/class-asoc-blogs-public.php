@@ -548,10 +548,10 @@ ul.share-buttons .sr-only {
 										echo '<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>';
                                         echo "<div id='map_id' style='width:100%;height:200px' data-center='{$geoj}' data-zoom='18'></div>";
                                         echo "<script>";
+										echo "var map = L.map('map_id').setView({$geoj}, 19);";
                                        	echo 'var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {';
 										echo '	attribution: "&copy; <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors, &copy; <a href=\'https://carto.com/attributions\'>CARTO</a>"';
 										echo '});';
-										echo "var map = L.map('map_id').setView({$geoj}, 19);";
 										echo "var mar = L.marker({$geoj});";
 										echo "mar.addTo(map); bglayer.addTo(map);";
 										echo "</script>";
