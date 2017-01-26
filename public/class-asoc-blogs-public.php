@@ -543,8 +543,17 @@ ul.share-buttons .sr-only {
 										echo "</ul>";
 										break;
 									case "point":
+										echo '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />';
+										echo '<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>';
                                         echo "<div id='map_id' style='width:100%;height:200px' data-center='{$field->value->geoj}' data-zoom='18'></div>";
-                                        echo "<div class='map_addr'>{$field->value->addr}</div>";
+                                        echo "<script>";
+                                       	echo 'var bglayer = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {';
+										echo '	attribution: "&copy; <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors, &copy; <a href=\'https://carto.com/attributions\'>CARTO</a>"';
+										echo '});';
+										echo "var map = L.map('map_id').setView({$field->value->geoj}, 19);";
+										echo "var mar = L.marker({$field->value->geoj});";
+										echo "</script>";
+                                        echo "<div class='map_addr'>Indirizzo: {$field->value->addr}</div>";
                                         break;
 									default:
 										echo "<p>{$field->value}</p>";
