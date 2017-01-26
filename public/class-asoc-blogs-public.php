@@ -552,6 +552,7 @@ ul.share-buttons .sr-only {
 										echo '});';
 										echo "var map = L.map('map_id').setView({$field->value->geoj}, 19);";
 										echo "var mar = L.marker({$field->value->geoj});";
+										echo "mar.addTo(map);";
 										echo "</script>";
                                         echo "<div class='map_addr'>Indirizzo: {$field->value->addr}</div>";
                                         break;
