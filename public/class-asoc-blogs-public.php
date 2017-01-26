@@ -543,9 +543,8 @@ ul.share-buttons .sr-only {
 										echo "</ul>";
 										break;
 									case "point":
-										echo $field->value;
-                                        echo "<div id='map_id' style='width:100%;height:200px' data-center='{$field->value['geoj']}' data-zoom='18'></div>";
-                                        echo "<div class=''>{$field->value['addr']}</div>";
+                                        echo "<div id='map_id' style='width:100%;height:200px' data-center='{$field->value->geoj}' data-zoom='18'></div>";
+                                        echo "<div class='map_addr'>{$field->value->addr}</div>";
                                         break;
 									default:
 										echo "<p>{$field->value}</p>";
