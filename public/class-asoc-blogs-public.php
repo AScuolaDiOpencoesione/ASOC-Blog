@@ -539,7 +539,8 @@ ul.share-buttons .sr-only {
 									case "multiple c":
 										echo "<ul>";
 										foreach($field->value as $k =>$v)
-											echo "<li>{$k}</li>";
+											if($v)
+												echo "<li>{$k}</li>";
 										echo "</ul>";
 										break;
 									case "point":
