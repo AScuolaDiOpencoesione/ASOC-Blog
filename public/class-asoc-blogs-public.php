@@ -531,7 +531,7 @@ ul.share-buttons .sr-only {
 										if ((strpos($field->value, 'jpg') !== false) || (strpos($field->value, 'jpeg') !== false) || (strpos($field->value, 'png') !== false))
 											echo "<p><img src='{$field->value}'></p>";
 										else 
-											echo "<p><a class='btn btn-success' href='{$field->value}'>Scarica il {$ffield->label}</a></p>";
+											echo "<p><a class='btn btn-success' href='{$field->value}'>Scarica  {$ffield->label}</a></p>";
 										break;
 									case "img":
 										echo "<p><img src='{$field->value}'></p>";
