@@ -517,7 +517,9 @@ ul.share-buttons .sr-only {
   <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'" target="_blank" title="Condividi su Google+"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true" style="color:#DC4E41"></i><span class="sr-only">Share on Google+</span></a></li>
 </ul>';
 				echo "<hr>";
-				
+				echo "<!--";
+				echo json_encode($post->fields);
+				echo "-->";
 				foreach($post->form->fields as $ffield){
 					echo "<h2>".$ffield->label."</h2>";
 					foreach($post->fields as $field){
