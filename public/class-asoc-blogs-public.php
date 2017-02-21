@@ -369,6 +369,9 @@ ul.share-buttons .sr-only {
 				echo '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />';
 				echo '<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>';
 				echo '<script src="https://cdn.rawgit.com/hiasinho/Leaflet.vector-markers/master/dist/leaflet-vector-markers.min.js"></script>';
+				echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.3/leaflet.markercluster.js"></script>';
+				echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.3/MarkerCluster.css" />';
+				echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.3/MarkerCluster.Default.css" />';
 				echo '<link rel="stylesheet" href="https://cdn.rawgit.com/hiasinho/Leaflet.vector-markers/master/dist/leaflet-vector-markers.css" />';
 				echo '<script>';
 				echo '
@@ -517,9 +520,6 @@ ul.share-buttons .sr-only {
   <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.ascuoladiopencoesione.it'.$_SERVER['REQUEST_URI'].'" target="_blank" title="Condividi su Google+"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true" style="color:#DC4E41"></i><span class="sr-only">Share on Google+</span></a></li>
 </ul>';
 				echo "<hr>";
-				echo "<!--";
-				echo json_encode($post->fields);
-				echo "-->";
 				foreach($post->form->fields as $ffield){
 					echo "<h2>".$ffield->label."</h2>";
 					foreach($post->fields as $field){
