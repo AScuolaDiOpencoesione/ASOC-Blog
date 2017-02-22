@@ -102,6 +102,7 @@ class Asoc_Blogs_Public {
 		} else {
 		   $file = file_get_contents($url);
 		   apc_store($url, $file, $time*60);
+		   return $file;
 		}
 	}
 
@@ -187,7 +188,7 @@ class Asoc_Blogs_Public {
 				$section_raw = get_cached("http://{$testsrvr}api.ascuoladiopencoesione.it/core/section/".$wp->query_vars["asoc_year"], 365*24*60*60*3);
 				//echo $section_raw;
 				$section = json_decode($section_raw);
-				$team_raw = get_cached("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"],60*5);
+				$team_raw = file_get_contents("http://{$testsrvr}api.ascuoladiopencoesione.it/team/".$wp->query_vars["asoc_team"]);
 				//echo $team_raw;
 				$team = json_decode($team_raw);
 				//var_dump($team);
