@@ -471,7 +471,7 @@ ul.share-buttons .sr-only {
 						//echo "</a>";
 						echo "</tr>";
 					}
-					echo "</div>";
+					echo "</table>";
 				} else {
 					echo "<div class='teams'>";
 					//var_dump($teams);
