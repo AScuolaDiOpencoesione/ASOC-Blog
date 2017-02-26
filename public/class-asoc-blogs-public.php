@@ -458,15 +458,15 @@ ul.share-buttons .sr-only {
 			if($wp->query_vars["asoc_mode"] == "blog"){
 				if($testsrvr == "test"){
 					echo "<table class='table'>";
+					echo "<tr><th>Al Blog</th><th>Logo</th><th>Team</th><th>Scuola</th><th>Località</th></tr>";
 					//var_dump($teams);
 					foreach($teams as $t){
-						//<a target="_blank" href="?team=1421"><div class="team_name">Work In Progress</div><div class="argomento">Tema: Inclusione sociale</div><div class="school_name">Liceo Scientifico "Francesco La Cava"</div><div class="school_name">Bovalino (RC)</div></a>
 						echo "<tr>";
-						echo "<td><a href='/{$testsrvr}blogs/{$section->id}/{$t->id}' class='filterable school_{$t->id} province_{$t->application->school_province->id} region_{$t->application->school_region->id} octopic_{$t->application->oc_topic}' style='color:black;'>Vai al blog</a></td>";
-						echo "<td><div class='team' style='background-image:url({$t->details->profile_image});'></div></td>";
-						echo "<td><h3>{$t->details->name}</h3></td>";
-						echo "<td><center>{$t->school->name}</center></td>";
-						echo "<td><center>{$t->school->city} ({$t->application->school_province->lit})</center></td>";
+							echo "<td><a href='/{$testsrvr}blogs/{$section->id}/{$t->id}' class='filterable school_{$t->id} province_{$t->application->school_province->id} region_{$t->application->school_region->id} octopic_{$t->application->oc_topic}' style='color:black;'>Vai al blog</a></td>";
+							echo "<td><div class='team' style='background-image:url({$t->details->profile_image});'></div></td>";
+							echo "<td><h3>{$t->details->name}</h3></td>";
+							echo "<td><center>{$t->school->name}</center></td>";
+							echo "<td><center>{$t->school->city} ({$t->application->school_province->lit})</center></td>";
 						//echo "</div>";
 						//echo "</a>";
 						echo "</tr>";
